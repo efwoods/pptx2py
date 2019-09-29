@@ -2,14 +2,6 @@ import scanner
 import sys
 import generate as generator
 
-if __name__ == "__main__":
-	FILE_NAME = "template_sample.pptx"
-	GENERATED_FILE_NAME = "mergeMe.py"
-		
-	prs = scanner.scanPresentationByMethod(FILE_NAME)
-
-	#scanAndGenerate(prs,GENERATED_FILE_NAME)
-	test(prs, GENERATED_FILE_NAME)
 
 def scanAndGenerate(prs, GENERATED_FILE_NAME):
 	mergeMe_py = generator.openMergeMe_py(GENERATED_FILE_NAME)	
@@ -144,3 +136,13 @@ def findShapeAndGenerate(shape):
 	else:
 		print("\n NEW SHAPE_TYPE: " + str(shape.shape_type))
 		scanner.separateFoundShapesWithPrint(FOUND_BY)
+
+
+if __name__ == "__main__":
+	FILE_NAME = "template_sample.pptx"
+	GENERATED_FILE_NAME = "mergeMe.py"
+		
+	prs = scanner.scanPresentationByMethod(FILE_NAME)
+
+	#scanAndGenerate(prs,GENERATED_FILE_NAME)
+	test(prs, GENERATED_FILE_NAME)
