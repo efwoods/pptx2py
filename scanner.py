@@ -41,6 +41,138 @@ FIND BY SHAPE_TYPE FUNCTIONS
 ############################################################################
 """
 
+def findShapeAUTO_SHAPE(shape):
+	if(string_found('AUTO_SHAPE',str(shape.shape_type))):
+		print("\n FOUND A AUTO_SHAPE")
+		return True
+	return False
+
+def findShapeCALLOUT(shape):
+	if(string_found('CALLOUT',str(shape.shape_type))):
+		print("\n FOUND A CALLOUT")
+		return True
+	return False
+
+def findShapeCANVAS(shape):
+	if(string_found('CANVAS',str(shape.shape_type))):
+		print("\n FOUND A CANVAS")
+		return True
+	return False
+
+def findShapeCHART(shape):
+	if(string_found('CHART',str(shape.shape_type))):
+		print("\n FOUND A CHART")
+		return True
+	return False
+
+def findShapeCOMMENT(shape):
+	if(string_found('COMMENT',str(shape.shape_type))):
+		print("\n FOUND A COMMENT")
+		return True
+	return False
+
+def findShapeDIAGRAM(shape):
+	if(string_found('DIAGRAM',str(shape.shape_type))):
+		print("\n FOUND A DIAGRAM")
+		return True
+	return False
+
+def findShapeEMBEDDED_OLE_OBJECT(shape):
+	if(string_found('EMBEDDED_OLE_OBJECT',str(shape.shape_type))):
+		print("\n FOUND A EMBEDDED_OLE_OBJECT")
+		return True
+	return False
+
+def findShapeFORM_CONTROL(shape):
+	if(string_found('FORM_CONTROL',str(shape.shape_type))):
+		print("\n FOUND A FORM_CONTROL")
+		return True
+	return False
+
+def findShapeFREEFORM(shape):
+	if(string_found('FREEFORM',str(shape.shape_type))):
+		print("\n FOUND A FREEFORM")
+		return True
+	return False
+
+def findShapeGROUP(shape):
+	if(string_found('GROUP',str(shape.shape_type))):
+		print("\n FOUND A GROUP")
+		return True
+	return False
+
+def findShapeIGX_GRAPHIC(shape):
+	if(string_found('IGX_GRAPHIC',str(shape.shape_type))):
+		print("\n FOUND A IGX_GRAPHIC")
+		return True
+	return False
+
+def findShapeINK(shape):
+	if(string_found('INK',str(shape.shape_type))):
+		print("\n FOUND A INK")
+		return True
+	return False
+
+def findShapeINK_COMMENT(shape):
+	if(string_found('INK_COMMENT',str(shape.shape_type))):
+		print("\n FOUND A INK_COMMENT")
+		return True
+	return False
+
+def findShapeLINE(shape):
+	if(string_found('LINE',str(shape.shape_type))):
+		print("\n FOUND A LINE")
+		return True
+	return False
+
+def findShapeLINKED_OLE_OBJECT(shape):
+	if(string_found('LINKED_OLE_OBJECT',str(shape.shape_type))):
+		print("\n FOUND A LINKED_OLE_OBJECT")
+		return True
+	return False
+
+def findShapeLINKED_PICTURE(shape):
+	if(string_found('LINKED_PICTURE',str(shape.shape_type))):
+		print("\n FOUND A LINKED_PICTURE")
+		return True
+	return False
+
+def findShapeMEDIA(shape):
+	if(string_found('MEDIA',str(shape.shape_type))):
+		print("\n FOUND A MEDIA")
+		return True
+	return False
+
+def findShapeOLE_CONTROL_OBJECT(shape):
+	if(string_found('OLE_CONTROL_OBJECT',str(shape.shape_type))):
+		print("\n FOUND A OLE_CONTROL_OBJECT")
+		return True
+	return False
+
+def findShapePICTURE(shape):
+	if(string_found('PICTURE',str(shape.shape_type))):
+		print("\n FOUND A PICTURE")
+		return True
+	return False
+
+def findShapePLACEHOLDER(shape):
+	if(string_found('PLACEHOLDER',str(shape.shape_type))):
+		print("\n FOUND A PLACEHOLDER")
+		return True
+	return False
+
+def findShapeSCRIPT_ANCHOR(shape):
+	if(string_found('SCRIPT_ANCHOR',str(shape.shape_type))):
+		print("\n FOUND A SCRIPT_ANCHOR")
+		return True
+	return False
+
+def findShapeTABLE(shape):
+	if(string_found('TABLE',str(shape.shape_type))):
+		print("\n FOUND A TABLE")
+		return True
+	return False
+
 def findShapeTEXT_BOX(shape):
 	if(string_found('TEXT_BOX',str(shape.shape_type))):
 		print("\n FOUND A TEXT_BOX")
@@ -52,18 +184,30 @@ def findShapeTEXT_BOX(shape):
 			print("\nSHAPE TEXT: NOT FOUND!!!")
 	return False
 
+def findShapeTEXT_EFFECT(shape):
+	if(string_found('TEXT_EFFECT',str(shape.shape_type))):
+		print("\n FOUND A TEXT_EFFECT")
+		return True
+	return False
+
+def findShapeWEB_VIDEO(shape):
+	if(string_found('WEB_VIDEO',str(shape.shape_type))):
+		print("\n FOUND A WEB_VIDEO")
+		return True
+	return False
+
+def findShapeMIXED(shape):
+	if(string_found('MIXED',str(shape.shape_type))):
+		print("\n FOUND A MIXED")
+		return True
+	return False
+
 
 """
 ############################################################################
 FIND BY PLACEHOLDER FUNCTIONS
 ############################################################################
 """
-
-def findPlaceholder(shape):
-	if(string_found('PLACEHOLDER',str(shape.shape_type))):
-		print("\n FOUND A PLACEHOLDER ON SHAPE")
-		return True
-	return False
 
 def findPlaceholderTITLE(shape):
 	if(string_found('TITLE',str(shape.placeholder_format.type))):
@@ -147,6 +291,100 @@ CORE FUNCTIONS
 ############################################################################
 """
 
+def findPlaceholder(shape):
+	if(string_found('PLACEHOLDER',str(shape.shape_type))):
+		print("\n FOUND A PLACEHOLDER ON SHAPE")
+		FOUND_BY = 'BY PLACEHOLDER'
+		if(findPlaceholderTITLE(shape)):
+			separateFoundShapesWithPrint(FOUND_BY)
+
+		elif(findPlaceholderCENTER_TITLE(shape)):
+			separateFoundShapesWithPrint(FOUND_BY)
+
+		elif(findPlaceholderSUBTITLE(shape)):
+			separateFoundShapesWithPrint(FOUND_BY)
+
+		elif(findPlaceholderTABLE(shape)):
+			separateFoundShapesWithPrint(FOUND_BY)
+
+		elif(findPlaceholderPICTURE(shape)):
+			separateFoundShapesWithPrint(FOUND_BY)
+
+		elif(findPlaceholderCHART(shape)):
+			separateFoundShapesWithPrint(FOUND_BY)
+
+		elif(findPlaceholderBODY(shape)):
+			separateFoundShapesWithPrint(FOUND_BY)
+			
+		elif(findPlaceholderOBJECT(shape)):
+			separateFoundShapesWithPrint(FOUND_BY)
+		else:
+			print('\n NO SHAPE IDENTIFIED BY PLACEHOLDER\n')
+			return False
+		return True
+	return False
+
+def findShape(shape):
+	print("\n SEARCHING FOR SHAPE BY SHAPE.SHAPE_TYPE: " + str(shape.shape_type))
+	FOUND_BY = 'BY SHAPE.SHAPE_TYPE'
+	if(findShapeTEXT_BOX(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeAUTO_SHAPE(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeCALLOUT(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeCANVAS(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeCHART(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeCOMMENT(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeDIAGRAM(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeEMBEDDED_OLE_OBJECT(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeFORM_CONTROL(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeFREEFORM(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeGROUP(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeIGX_GRAPHIC(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeINK(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeINK_COMMENT(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeLINE(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeLINKED_OLE_OBJECT(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeLINKED_PICTURE(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeMEDIA(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeOLE_CONTROL_OBJECT(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapePICTURE(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapePLACEHOLDER(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeSCRIPT_ANCHOR(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeTABLE(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeTEXT_BOX(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeTEXT_EFFECT(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeWEB_VIDEO(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	elif(findShapeMIXED(shape)):
+		separateFoundShapesWithPrint(FOUND_BY)
+	else:
+		print("\n NEW SHAPE_TYPE: " + str(shape.shape_type))
+		separateFoundShapesWithPrint(FOUND_BY)
+
 def identifyAllShapes(prs):
 	for slide in prs.slides:
 		print("\n\n#############################################################\n\n")
@@ -157,48 +395,9 @@ def identifyAllShapes(prs):
 def identifyShape(shape):
 			try:
 				print("\nShape Type: " + str(shape.shape_type))
-				try:
-					print('\tidx: %d \n\tname: %s\n\tplaceholder_format_type: %s\n\tshape.shape_type: %s' % (shape.placeholder_format.idx, shape.name, str(shape.placeholder_format.type), shape.shape_type))
-				except Exception as detail:
-					print("Error on PLACEHOLDER LOG PRINT")
-					print(detail)
-					pass
-				if(findPlaceholder(shape)):
-					FOUND_BY = 'BY PLACEHOLDER'
-					if(findPlaceholderTITLE(shape)):
-						separateFoundShapesWithPrint(FOUND_BY)
-
-					elif(findPlaceholderCENTER_TITLE(shape)):
-						separateFoundShapesWithPrint(FOUND_BY)
-
-					elif(findPlaceholderSUBTITLE(shape)):
-						separateFoundShapesWithPrint(FOUND_BY)
-
-					elif(findPlaceholderTABLE(shape)):
-						separateFoundShapesWithPrint(FOUND_BY)
-
-					elif(findPlaceholderPICTURE(shape)):
-						separateFoundShapesWithPrint(FOUND_BY)
-
-					elif(findPlaceholderCHART(shape)):
-						separateFoundShapesWithPrint(FOUND_BY)
-
-					elif(findPlaceholderBODY(shape)):
-						separateFoundShapesWithPrint(FOUND_BY)
-						
-					elif(findPlaceholderOBJECT(shape)):
-						separateFoundShapesWithPrint(FOUND_BY)
-
-					else:
-						print('\n NO SHAPE IDENTIFIED BY PLACEHOLDER\n')
-				else:
-					print("\n SEARCHING FOR SHAPE BY SHAPE.SHAPE_TYPE: " + str(shape.shape_type))
-					FOUND_BY = 'BY SHAPE.SHAPE_TYPE'
-					if(findShapeTEXT_BOX(shape)):
-						separateFoundShapesWithPrint(FOUND_BY)
-					else:
-						print("\n NEW SHAPE_TYPE: " + str(shape.shape_type))
-						separateFoundShapesWithPrint(FOUND_BY)
+				
+				if not (findPlaceholder(shape)):
+					findShape(shape)
 			except Exception as detail:
 				print(detail)
 				pass
@@ -241,7 +440,7 @@ TEMPLATES
 ############################################################################
 """
 
-""" def TEMPLATE TYPES TO CHECK
+""" def TEMPLATE TYPES TO CHECK PLACEHOLDERS
 				USE ALL CAPS
 				BITMAP
 				    Bitmap
@@ -280,6 +479,60 @@ TEMPLATES
 				VERTICAL_TITLE
 				    Vertical Title
 				MIXED
+"""
+
+""" def TEMPLATE TYPES TO CHECK SHAPES
+	AUTO_SHAPE
+
+	CALLOUT
+
+	CANVAS
+
+	CHART
+
+	COMMENT
+
+	DIAGRAM
+
+	EMBEDDED_OLE_OBJECT
+
+	FORM_CONTROL
+
+	FREEFORM
+
+	GROUP
+
+	IGX_GRAPHIC
+
+	INK
+
+	INK_COMMENT
+
+	LINE
+
+	LINKED_OLE_OBJECT
+
+	LINKED_PICTURE
+
+	MEDIA
+
+	OLE_CONTROL_OBJECT
+
+	PICTURE
+
+	PLACEHOLDER
+
+	SCRIPT_ANCHOR
+
+	TABLE
+
+	TEXT_BOX
+
+	TEXT_EFFECT
+
+	WEB_VIDEO
+
+	MIXED
 """
 
 """ def TEMPLATE_FUNCTION
