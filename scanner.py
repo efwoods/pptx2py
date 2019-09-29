@@ -71,7 +71,6 @@ def findShapeDimensions(shape):
 	print("\n TEXT_BOX WIDTH: " + str(shape.width))
 	print("\n TEXT_BOX HEIGHT: " + str(shape.height))
 
-
 def find_placeholder(prs):
 	for slide in prs.slides:
 		for shape in slide.placeholders:
