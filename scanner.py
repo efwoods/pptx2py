@@ -21,10 +21,10 @@ def string_found(string1, string2):
    return False
 
 def findShapeDimensions(shape):
-	print("\n TEXT_BOX LEFT: " + str(shape.left))
-	print("\n TEXT_BOX TOP: " + str(shape.top))
-	print("\n TEXT_BOX WIDTH: " + str(shape.width))
-	print("\n TEXT_BOX HEIGHT: " + str(shape.height))
+	print("\n SHAPE LEFT: " + str(shape.left))
+	print("\n SHAPE TOP: " + str(shape.top))
+	print("\n SHAPE WIDTH: " + str(shape.width))
+	print("\n SHAPE HEIGHT: " + str(shape.height))
 
 def separateFoundShapesWithPrint(FOUND_BY):
 	print('\n\
@@ -44,6 +44,7 @@ FIND BY SHAPE_TYPE FUNCTIONS
 def findShapeAUTO_SHAPE(shape):
 	if(string_found('AUTO_SHAPE',str(shape.shape_type))):
 		print("\n FOUND A AUTO_SHAPE")
+		findShapeDimensions(shape)
 		return True
 	return False
 
@@ -62,6 +63,7 @@ def findShapeCANVAS(shape):
 def findShapeCHART(shape):
 	if(string_found('CHART',str(shape.shape_type))):
 		print("\n FOUND A CHART")
+		findShapeDimensions(shape)
 		return True
 	return False
 
@@ -152,6 +154,7 @@ def findShapeOLE_CONTROL_OBJECT(shape):
 def findShapePICTURE(shape):
 	if(string_found('PICTURE',str(shape.shape_type))):
 		print("\n FOUND A PICTURE")
+		findShapeDimensions(shape)
 		return True
 	return False
 
@@ -170,6 +173,7 @@ def findShapeSCRIPT_ANCHOR(shape):
 def findShapeTABLE(shape):
 	if(string_found('TABLE',str(shape.shape_type))):
 		print("\n FOUND A TABLE")
+		findShapeDimensions(shape)
 		return True
 	return False
 
