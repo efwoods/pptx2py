@@ -263,8 +263,8 @@ def scanPresentationByCLI():
 	try: # try if ran at command line with file as first arg
 		FILE_NAME = sys.argv[1] # ABSOLUTE FILE PATH OF PPTX TO BE SCANNED
 		current_dr = os.path.dirname(os.path.realpath(__file__))
-		FULL_PATH = current_dr + FILE_NAME + ".pptx"
-		#print(FULL_PATH)
+		FULL_PATH = current_dr + "/" + FILE_NAME 
+		print(FULL_PATH)
 		prs = Presentation(FULL_PATH)
 		return prs
 	except Exception as detail:
@@ -272,10 +272,10 @@ def scanPresentationByCLI():
 		pass	
 
 
-def scanPresentationByMethod(FILE_NAME): # FILE_NAME EXPECTS FILENAME (NO QUOTES, SLASHES, PRE, OR SUFFIX)
+def scanPresentationByMethod(FILE_NAME): # FILE_NAME EXPECTS FILENAME (NO QUOTES, OR PREFIX)
 	try: # try if ran at command line with file as first arg
 		current_dr = os.path.dirname(os.path.realpath(__file__))
-		FULL_PATH = current_dr + "/" + FILE_NAME + ".pptx"
+		FULL_PATH = current_dr + "/" + FILE_NAME 
 		print(FULL_PATH)
 		prs = Presentation(FULL_PATH)
 		return prs
