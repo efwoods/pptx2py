@@ -26,11 +26,11 @@ def findShapeDimensions(shape):
 	print("\n TEXT_BOX WIDTH: " + str(shape.width))
 	print("\n TEXT_BOX HEIGHT: " + str(shape.height))
 
-def separateFoundShapesWithPrint():
+def separateFoundShapesWithPrint(FOUND_BY):
 	print('\n\
 		XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\
 		\n\
-		...FOUND SHAPE: EXITING ID SHAPE BY PLACEHOLDER...\
+		...FOUND SHAPE: EXITING ID SHAPE ' + FOUND_BY + ' ...\
 		\n\
 		XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\
 		\n')
@@ -164,39 +164,41 @@ def identifyShape(shape):
 					print(detail)
 					pass
 				if(findPlaceholder(shape)):
+					FOUND_BY = 'BY PLACEHOLDER'
 					if(findPlaceholderTITLE(shape)):
-						separateFoundShapesWithPrint()
+						separateFoundShapesWithPrint(FOUND_BY)
 
 					elif(findPlaceholderCENTER_TITLE(shape)):
-						separateFoundShapesWithPrint()
+						separateFoundShapesWithPrint(FOUND_BY)
 
 					elif(findPlaceholderSUBTITLE(shape)):
-						separateFoundShapesWithPrint()
+						separateFoundShapesWithPrint(FOUND_BY)
 
 					elif(findPlaceholderTABLE(shape)):
-						separateFoundShapesWithPrint()
+						separateFoundShapesWithPrint(FOUND_BY)
 
 					elif(findPlaceholderPICTURE(shape)):
-						separateFoundShapesWithPrint()
+						separateFoundShapesWithPrint(FOUND_BY)
 
 					elif(findPlaceholderCHART(shape)):
-						separateFoundShapesWithPrint()
+						separateFoundShapesWithPrint(FOUND_BY)
 
 					elif(findPlaceholderBODY(shape)):
-						separateFoundShapesWithPrint()
+						separateFoundShapesWithPrint(FOUND_BY)
 						
 					elif(findPlaceholderOBJECT(shape)):
-						separateFoundShapesWithPrint()
-						
+						separateFoundShapesWithPrint(FOUND_BY)
+
 					else:
 						print('\n NO SHAPE IDENTIFIED BY PLACEHOLDER\n')
 				else:
 					print("\n SEARCHING FOR SHAPE BY SHAPE.SHAPE_TYPE: " + str(shape.shape_type))
+					FOUND_BY = 'BY SHAPE.SHAPE_TYPE'
 					if(findShapeTEXT_BOX(shape)):
-						print('\n...EXITING ID SHAPE BY SHAPE.SHAPE_TYPE...\n')
+						separateFoundShapesWithPrint(FOUND_BY)
 					else:
 						print("\n NEW SHAPE_TYPE: " + str(shape.shape_type))
-						print('\n...EXITING ID SHAPE BY SHAPE.SHAPE_TYPE...\n')
+						separateFoundShapesWithPrint(FOUND_BY)
 			except Exception as detail:
 				print(detail)
 				pass
