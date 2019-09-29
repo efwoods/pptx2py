@@ -26,6 +26,15 @@ def findShapeDimensions(shape):
 	print("\n TEXT_BOX WIDTH: " + str(shape.width))
 	print("\n TEXT_BOX HEIGHT: " + str(shape.height))
 
+def separateFoundShapesWithPrint():
+	print('\n\
+		XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\
+		\n\
+		...FOUND SHAPE: EXITING ID SHAPE BY PLACEHOLDER...\
+		\n\
+		XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\
+		\n')
+
 """
 ############################################################################
 FIND BY SHAPE_TYPE FUNCTIONS
@@ -156,28 +165,28 @@ def identifyShape(shape):
 					pass
 				if(findPlaceholder(shape)):
 					if(findPlaceholderTITLE(shape)):
-						print('\n...EXITING ID SHAPE BY PLACEHOLDER...\n')
+						separateFoundShapesWithPrint()
 
 					elif(findPlaceholderCENTER_TITLE(shape)):
 						print('\n...EXITING ID SHAPE...\n')
 
 					elif(findPlaceholderSUBTITLE(shape)):
-						print('\n...EXITING ID SHAPE BY PLACEHOLDER...\n')
+						separateFoundShapesWithPrint()
 
 					elif(findPlaceholderTABLE(shape)):
-						print('\n...EXITING ID SHAPE BY PLACEHOLDER...\n')
+						separateFoundShapesWithPrint()
 
 					elif(findPlaceholderPICTURE(shape)):
-						print('\n...EXITING ID SHAPE BY PLACEHOLDER...\n')
+						separateFoundShapesWithPrint()
 
 					elif(findPlaceholderCHART(shape)):
-						print('\n...EXITING ID SHAPE BY PLACEHOLDER...\n')
+						separateFoundShapesWithPrint()
 
 					elif(findPlaceholderBODY(shape)):
-						print('\n...EXITING ID SHAPE BY PLACEHOLDER...\n')
+						separateFoundShapesWithPrint()
 						
 					elif(findPlaceholderOBJECT(shape)):
-						print('\n...EXITING ID SHAPE BY PLACEHOLDER...\n')
+						separateFoundShapesWithPrint()
 					else:
 						print('\n NO SHAPE IDENTIFIED BY PLACEHOLDER\n')
 				else:
