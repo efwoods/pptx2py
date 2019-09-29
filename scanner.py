@@ -1,9 +1,8 @@
 import os
 from pptx import Presentation
-import generator
 import re
 import sys
-import generator
+import generate as generator
 
 """
 pptx content detector should be in its own file
@@ -280,7 +279,7 @@ def find_shape(prs, GENERATED_FILE_NAME):
 						print("\n FOUND A TEXT_BOX")
 						findShapeDimensions(shape)
 						if(shape.text):
-							generator.writeADD_TEXTBOX(GENERATED_FILE_NAME,shape.left,shape.top,shape.width,shape.height,shapt.text_frame.text)
+							generator.writeADD_TEXTBOX(GENERATED_FILE_NAME,shape.left,shape.top,shape.width,shape.height,shape.text_frame.text)
 							print("\nSHAPE TEXT: " + shape.text)
 						else:
 							print("\nSHAPE TEXT: NOT FOUND!!!")

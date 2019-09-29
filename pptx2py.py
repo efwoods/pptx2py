@@ -1,6 +1,6 @@
 import scanner
 import sys
-import generator
+import generate as generator
 
 if __name__ == "__main__":
 	## generate file "mergeMe.py"
@@ -25,7 +25,7 @@ if __name__ == "__main__":
 	generator.writeADD_AUTO_SHAPE(mergeMe_py)
 	generator.writeTEXT(mergeMe_py)
 	generator.writeADD_TEXTBOX(mergeMe_py)
- """
+"""
 	#scanner.find_shape(prs, mergeMe_py)
 	
 	#generator.writeSave(mergeMe_py)
