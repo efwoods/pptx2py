@@ -53,7 +53,7 @@ def find_text(prs):
 						for run in paragraph.runs:
 							text_runs.append(run.text)
 							print(run.text)
-						print("Slide " + str((prs.slides.index(slide)) + 1) + " has text paragraph: \n" + test_runs)
+						print("Slide " + str((prs.slides.index(slide)) + 1) + " has text paragraph: \n" + text_runs)
 					#writeTable(__file__)
 					continue
 			except:
