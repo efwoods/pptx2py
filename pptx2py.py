@@ -1,6 +1,6 @@
 import scanner
 import sys
-import generator
+import generate as generator
 
 if __name__ == "__main__":
 	## generate file "mergeMe.py"

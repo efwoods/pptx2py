@@ -6,8 +6,57 @@ from pptx.dml.color import RGBColor
 prs = Presentation()
 title_slide_layout = prs.slide_layouts[0]
 slide = prs.slides.add_slide(title_slide_layout)
-shape = slide.shapes.add_textbox(685800,2130425,7772400,1470025)
-shape.text_frame.text = "Hello, World!"
-shape = slide.shapes.add_textbox(1371600,3886200,6400800,1752600)
-shape.text_frame.text = "python-pptx generator was here!"
+shape = slide.shapes.add_textbox(685800,2895480,7772040,1066320)
+shape.text_frame.text = "Presentation Title"
+shape = slide.shapes.add_textbox(685800,4648320,6400440,1904760)
+shape.text_frame.text = "Author
+Department
+Date
+Location"
+shape = slide.shapes.add_textbox(4480560,2651760,3017520,346320)
+shape.text_frame.text = "User1 test "
+slide = prs.slides.add_slide(title_slide_layout)
+shape = slide.shapes.add_textbox(722160,2906640,7772040,1361880)
+shape.text_frame.text = "Presentation Title"
+shape = slide.shapes.add_textbox(722160,4648320,7772040,1683360)
+shape.text_frame.text = "Author
+Department
+Date
+Location"
+slide = prs.slides.add_slide(title_slide_layout)
+slide = prs.slides.add_slide(title_slide_layout)
+shape = slide.shapes.add_textbox(533520,990720,3007800,552240)
+shape.text_frame.text = "GraphTitle"
+shape = slide.shapes.add_textbox(533520,6019920,8229240,685440)
+shape.text_frame.text = "Additional Notes - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem"
+slide = prs.slides.add_slide(title_slide_layout)
+shape = slide.shapes.add_textbox(533520,990720,8152920,533160)
+shape.text_frame.text = "Chart Title"
+slide = prs.slides.add_slide(title_slide_layout)
+shape = slide.shapes.add_textbox(533520,990720,8152920,533160)
+shape.text_frame.text = "List Title"
+shape = slide.shapes.add_textbox(533520,1676520,8152920,4449240)
+shape.text_frame.text = "Lorem ipsum dolor sit amet 
+Aenean commodo ligula eget dolor 
+Cum sociis natoque penatibus et magnis dis parturient montes 
+Donec quam felis, ultricies nec, pellentesque eu 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit 
+Aenean massa 
+Aenean commodo ligula eget dolor"
+slide = prs.slides.add_slide(title_slide_layout)
+shape = slide.shapes.add_textbox(533520,990720,8152920,533160)
+shape.text_frame.text = "Slide Title"
+shape = slide.shapes.add_textbox(533520,1676520,8152920,4449240)
+shape.text_frame.text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+
+Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+"
+slide = prs.slides.add_slide(title_slide_layout)
+shape = slide.shapes.add_textbox(533520,6248520,8152920,347400)
+shape.text_frame.text = "Type image caption here."
+shape = slide.shapes.add_textbox(533520,1066680,8152920,456840)
+shape.text_frame.text = "Slide Title"
+slide = prs.slides.add_slide(title_slide_layout)
+shape = slide.shapes.add_textbox(507960,1038240,8229240,532440)
+shape.text_frame.text = "Page Title"
 prs.save('generated_user1.pptx')
