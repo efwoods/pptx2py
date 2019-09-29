@@ -31,6 +31,9 @@ def openMergeMe_py(__file__):
 	mergeMe_py = open(__file__,"w+")
 	return mergeMe_py
 
+def closeMergeMe_py(__file__):
+	__file__.close()
+
 def writeImports(__file__):
 	__file__.write("from pptx import Presentation\n")
 	__file__.write("from pptx.enum.shapes import MSO_SHAPE\n")
