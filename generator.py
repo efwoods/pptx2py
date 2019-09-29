@@ -27,6 +27,10 @@ def eraseMergeMe_py():
 	mergeMe_py = open("mergeMe.py","w+")
 	mergeMe_py.close()
 
+def openMergeMe_py(__file__):
+	mergeMe_py = open(__file__,"w+")
+	return mergeMe_py
+
 def writeImports(__file__):
 	__file__.write("from pptx import Presentation\n")
 	__file__.write("from pptx.enum.shapes import MSO_SHAPE\n")
@@ -62,9 +66,17 @@ def writeFILL_SHAPE_SOLID_RED(__file__):
 	__file__.write("fill.solid()\n")
 	__file__.write("fill.fore_color.rgb = RGBColor(255, 0, 0)\n")
 
-def writeADD_TEXTBOX(__file__):
-	__file__.write("shape = slide.shapes.add_textbox(2,1,1,1)\n") #left top width height
-	__file__.write("shape.text_frame.text = \"ADDED TEXT HERE! :)\"\n")
+def writeADD_TEXTBOX(__file__, LEFT, TOP, WIDTH, HEIGHT, TEXT):
+	__file__.write("shape = slide.shapes.add_textbox(" 
+	+ str(LEFT) + "," + str(TOP) + "," + str(WIDTH) + "," + str(HEIGHT) + ")\n") #left top width height
+	__file__.write("shape.text_frame.text = \"" + TEXT + "\"\n")
+
+def writeADD_CENTER_TITLE(__file__, LEFT, TOP, WIDTH, HEIGHT, TEXT):
+	__file__.write("shape = slide.shapes.add_textbox(" 
+	+ str(LEFT) + "," + str(TOP) + "," + str(WIDTH) + "," + str(HEIGHT) + ")\n") #left top width height
+	__file__.write("shape.text_frame.text = \"" + TEXT + "\"\n")
+
+
 
 def writeTEXT(__file__): # BE MINDFUL OF SHAPE BEFORE USE !!!!!!!!!!!!
 	__file__.write("shape.text_frame.text = \"ADDED TEXT HERE! :)\"\n")	
@@ -77,7 +89,7 @@ def writeSave(__file__):
 
 if __name__ == "__main__":
 	# generate file "mergeMe.py"
-	pptx2py()
+#	pptx2py()
 
 """
 
