@@ -168,7 +168,7 @@ def identifyShape(shape):
 						separateFoundShapesWithPrint()
 
 					elif(findPlaceholderCENTER_TITLE(shape)):
-						print('\n...EXITING ID SHAPE...\n')
+						separateFoundShapesWithPrint()
 
 					elif(findPlaceholderSUBTITLE(shape)):
 						separateFoundShapesWithPrint()
@@ -187,6 +187,7 @@ def identifyShape(shape):
 						
 					elif(findPlaceholderOBJECT(shape)):
 						separateFoundShapesWithPrint()
+						
 					else:
 						print('\n NO SHAPE IDENTIFIED BY PLACEHOLDER\n')
 				else:
