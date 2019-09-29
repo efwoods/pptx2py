@@ -1,4 +1,24 @@
+from io import StringIO
+import sys
 
+"""
+############################################################################
+UTILITY FUNCTIONS
+############################################################################
+"""
+
+def string_found(string1, string2):
+   if re.search(r"\b" + re.escape(string1) + r"\b", string2):
+      return True
+   return False
+
+
+def hex2RGB(hex, __file__):
+	print('XXXXX XXXXXXXX 	 '+ hex+'		 XXXXXXXXXXXXXX')
+	old_stdout = sys.stdout
+	sys.stdout = __file__
+	print('RGBColor', tuple(int(hex[i:i+2],16)for i in (0,2,4)), sep = '')
+	sys.stdout = old_stdout
 
 
 """
@@ -20,9 +40,62 @@ def pptx2py():
 	# detect && write if detected
 	mergeMe_py.close()
 
-def writeTable(__file__):
-	__file__.write()
+def writeTable(__file__, shape):
+	
+	try:
+		LEFT = str(shape.left)
+		TOP = str(shape.top)
+		WIDTH = str(shape.width)
+		HEIGHT = str(shape.height)
+		ROWS = str(len(shape.table.rows))
+		COLS = str(len(shape.table.columns))
 
+		__file__.write("LEFT = " + LEFT + "\n")
+		__file__.write("TOP = " + TOP + "\n")
+		__file__.write("WIDTH = " + WIDTH + "\n")
+		__file__.write("HEIGHT = " + HEIGHT + "\n")
+		__file__.write("ROWS = " + ROWS + "\n")
+		__file__.write("COLS = " + COLS + "\n")
+
+		__file__.write("shape = slide.shapes.add_table(ROWS, COLS, LEFT, TOP, WIDTH, HEIGHT)") #.TABLE
+
+		__file__.write("\nfor row in range (0, len(shape.table.rows)):")
+		__file__.write("\n\tfor col in range (0,len(shape.table.columns)):")
+		__file__.write("\n\t\tif(row == 0):")
+		for row in range (0, len(shape.table.rows)):
+			for col in range (0, len(shape.table.columns)):
+				if(row == 0):
+					__file__.write("\n\t\t\tshape.table.columns[" + str(col) +"].width = " + str(shape.table.columns[col].width))
+
+					__file__.write("\n\t\t\tshape.table.cell(" + str(row) + "," + str(col) + ").text = '" + str(shape.table.cell(row,col).text) + "'")
+					__file__.write("\n\t\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.solid()")
+					""" __file__.write("\n\t\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.type = '" + str(shape.table.cell(row,col).fill.type) + "'") """
+					try:
+						__file__.write("\n\t\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.fore_color.rgb = ")
+						hex2RGB(str(shape.table.cell(row,col).fill.fore_color.rgb),__file__)
+						__file__.write("\n")
+					except Exception as detail:
+						print(detail)
+						pass
+				else:
+					__file__.write("\n\t\tshape.table.cell(" + str(row) + "," + str(col) + ").text = '" + str(shape.table.cell(row,col).text) + "'")
+					__file__.write("\n\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.solid()")
+					""" __file__.write("\n\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.type = '" + str(shape.table.cell(row,col).fill.type) + "'") """
+					
+					try:
+						__file__.write("\n\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.fore_color.rgb = ")
+						hex2RGB(str(shape.table.cell(row,col).fill.fore_color.rgb),__file__)
+						__file__.write("\n")
+					except Exception as detail:
+						print(detail)
+						pass
+				
+
+		__file__.write("\n")
+	except Exception as detail:
+		print(detail)
+		pass
+			
 def eraseMergeMe_py():
 	mergeMe_py = open("mergeMe.py","w+")
 	mergeMe_py.close()
@@ -69,10 +142,35 @@ def writeFILL_SHAPE_SOLID_RED(__file__):
 	__file__.write("fill.solid()\n")
 	__file__.write("fill.fore_color.rgb = RGBColor(255, 0, 0)\n")
 
-def writeADD_TEXTBOX(__file__, LEFT, TOP, WIDTH, HEIGHT, TEXT):
-	__file__.write("shape = slide.shapes.add_textbox(" 
-	+ str(LEFT) + "," + str(TOP) + "," + str(WIDTH) + "," + str(HEIGHT) + ")\n") #left top width height
-	__file__.write("shape.text_frame.text = \"" + TEXT + "\"\n")
+def writeADD_TEXTBOX(__file__, shape):
+	LEFT = str(shape.left)
+	TOP = str(shape.top)
+	WIDTH = str(shape.width)
+	HEIGHT = str(shape.height)
+
+	__file__.write("LEFT = " + LEFT + "\n")
+	__file__.write("TOP = " + TOP + "\n")
+	__file__.write("WIDTH = " + WIDTH + "\n")
+	__file__.write("HEIGHT = " + HEIGHT + "\n")
+
+	__file__.write("shape = slide.shapes.add_textbox(LEFT,TOP,WIDTH,HEIGHT)\n") #left top width height
+	
+
+	if(shape.text_frame):
+		text_runs = []
+		""" __file__.write("\nfor paragraph in range (0, len(shape.text_frame.paragraphs)):")
+		__file__.write("\n\tfor run in range (0,len(paragraph.runs)):")
+		 """
+		for paragraph in shape.text_frame.paragraphs:
+			for run in paragraph.runs:
+				text_runs.append(run.text)
+		TEXT = ','.join(text_runs)
+
+	else:
+		TEXT = shape.text
+
+	__file__.write("shape.text_frame.text = '" + TEXT + "'\n")
+
 
 def writeADD_CENTER_TITLE(__file__, LEFT, TOP, WIDTH, HEIGHT, TEXT):
 	__file__.write("shape = slide.shapes.add_textbox(" 
@@ -86,7 +184,7 @@ def writeTEXT(__file__): # BE MINDFUL OF SHAPE BEFORE USE !!!!!!!!!!!!
 
 
 def writeSave(__file__):
-	__file__.write("prs.save('generated_user1.pptx')\n")
+	__file__.write("prs.save('generated_FINAL.pptx')\n")
 
 
 """

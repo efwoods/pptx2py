@@ -8,6 +8,7 @@ import os
 from pptx import Presentation
 import re
 import sys
+from pprint import pprint
 
 """
 ############################################################################
@@ -170,17 +171,330 @@ def findShapeSCRIPT_ANCHOR(shape):
 		return True
 	return False
 
+def findShapeTABLE_ATTRIBUTES(shape):
+	if(string_found('TABLE',str(shape.shape_type))):
+		print("\n FOUND A TABLE")
+		findShapeDimensions(shape)
+		
+		print("\nShape Attributes: ")
+		pprint(dir(shape))
+		print("\nTable Attributes")
+		pprint(dir(shape.table))
+		print("\nTABLE ROWS: " 
+		# number of rows in table
+		+ str(len(shape.table.rows)))
+		pprint(dir(shape.table.rows))
+		print("\nTABLE COLUMNS: "
+		# number of columns in table
+		+ str(len(shape.table.columns)))
+		pprint(dir(shape.table.columns))
+		print("\nTABLE shape.table.cell")
+		pprint(dir(shape.table.cell))
+		print("\n")
+		print("\nTABLE CELL(0,0)")
+		pprint(dir(shape.table.cell(0,0)))
+		print("\n")
+		print("\nTABLE CELL(0,0) text: ")
+		print(shape.table.cell(0,0).text)
+		print("\nTABLE CELL FILL: ")
+		pprint(dir(shape.table.cell(0,0).fill))
+
+		""" try:
+			pprint('shape.table.cell(0,0).fill.back_color: ', dir(shape.table.cell(0,0).fill.back_color))
+		except Exception as detail:
+			print(detail)
+			pass 
+		"""
+		"""
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.background: ' + str(shape.table.cell(0,0).fill.background()))
+		except Exception as detail:
+			print(detail)
+			pass
+		"""
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.fore_color: ')
+			pprint(dir(shape.table.cell(0,0).fill.fore_color))
+			print("\nTABLE CELL COLOR")
+			print(str(shape.table.cell(0,0).fill.fore_color.rgb))
+		except Exception as detail:
+			print(detail)
+			pass
+		"""
+
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.from_fill_parent: ', shape.table.cell(0,0).fill.from_fill_parent)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.gradient: ', shape.table.cell(0,0).fill.gradient)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.gradient_angle: ', shape.table.cell(0,0).fill.gradient_angle)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.gradient_stops: ', shape.table.cell(0,0).fill.gradient_stops)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.pattern: ', shape.table.cell(0,0).fill.pattern)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.patterned: ', shape.table.cell(0,0).fill.patterned)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.solid: ', shape.table.cell(0,0).fill.solid)
+		except Exception as detail:
+			print(detail)
+			pass
+		"""
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.type: ', shape.table.cell(0,0).fill.type)
+		except Exception as detail:
+			print(detail)
+			pass
+
+		print("\nTABLE CELL text_frame: ")
+		pprint(dir(shape.table.cell(0,0).text_frame))
+		print("\nTABLE CELL text_frame.text: ")
+		print(shape.table.cell(0,0).text_frame.text)
+		try:
+			print("\nCell FONT PER PARAGRAPH")
+			pprint(dir(shape.table.cell(0,0).text_frame.paragraphs[0].font))
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.bold: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.bold)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.color: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.color.rgb)
+			pprint(dir(shape.table.cell(0,0).text_frame.paragraphs[0].font.color))
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.fill: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.fill)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.italic: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.italic)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.language_id: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.language_id)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.name: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.name)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.size: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.size)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.underline: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.underline)
+		except Exception as detail:
+			print(detail)
+			pass
+
+		print("\n")
+
+		print("\nTABLE COLUMN HEADERS & CONTENT")
+		for row in range (0, len(shape.table.rows)):
+			for col in range (0,len(shape.table.columns)):
+				# cell (rows, columns)
+				if(row == 0):
+					print("Column #" + str(col + 1) + " Header: " + shape.table.cell(row,col).text + "\n")
+				else:
+					print("Cell(ROW, COL): (" +str(row + 1) + ", " + str(col + 1) + ") TEXT: " + shape.table.cell(row,col).text + "\n")
+
+		""" for col in shape.table.columns:
+			print("\nCOLUMN %s WIDTH: %s") % str(col), str(col.width)
+		print("\n") """
+		""" for i in range(0, len(shape.table.columns)):
+			print("\nCOLUMN %d HEADER: %s") % i, str(shape.table.cell(0, i).text) 
+		"""
+		print("\n")
+
+
+		return True
+	return False
+
 def findShapeTABLE(shape):
 	if(string_found('TABLE',str(shape.shape_type))):
 		print("\n FOUND A TABLE")
 		findShapeDimensions(shape)
+		
+		print("\nShape Attributes: ")
+		pprint(dir(shape))
+		print("\nTable Attributes")
+		pprint(dir(shape.table))
+		print("\nTABLE ROWS: " 
+		# number of rows in table
+		+ str(len(shape.table.rows)))
+		pprint(dir(shape.table.rows))
+		print("\nTABLE COLUMNS: "
+		# number of columns in table
+		+ str(len(shape.table.columns)))
+		pprint(dir(shape.table.columns))
+		print("\nTABLE shape.table.cell")
+		pprint(dir(shape.table.cell))
+		print("\n")
+		print("\nTABLE CELL(0,0)")
+		pprint(dir(shape.table.cell(0,0)))
+		print("\n")
+		print("\nTABLE CELL(0,0) text: ")
+		print(shape.table.cell(0,0).text)
+		print("\nTABLE CELL FILL: ")
+		pprint(dir(shape.table.cell(0,0).fill))
+
+		""" try:
+			pprint('shape.table.cell(0,0).fill.back_color: ', dir(shape.table.cell(0,0).fill.back_color))
+		except Exception as detail:
+			print(detail)
+			pass 
+		"""
+		"""
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.background: ' + str(shape.table.cell(0,0).fill.background()))
+		except Exception as detail:
+			print(detail)
+			pass
+		"""
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.fore_color: ')
+			pprint(dir(shape.table.cell(0,0).fill.fore_color))
+			print("\nTABLE CELL COLOR")
+			print(str(shape.table.cell(0,0).fill.fore_color.rgb))
+		except Exception as detail:
+			print(detail)
+			pass
+		"""
+
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.from_fill_parent: ', shape.table.cell(0,0).fill.from_fill_parent)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.gradient: ', shape.table.cell(0,0).fill.gradient)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.gradient_angle: ', shape.table.cell(0,0).fill.gradient_angle)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.gradient_stops: ', shape.table.cell(0,0).fill.gradient_stops)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.pattern: ', shape.table.cell(0,0).fill.pattern)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.patterned: ', shape.table.cell(0,0).fill.patterned)
+		except Exception as detail:
+			print(detail)
+			pass
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.solid: ', shape.table.cell(0,0).fill.solid)
+		except Exception as detail:
+			print(detail)
+			pass
+		"""
+		try:
+			print("\n")
+			print('shape.table.cell(0,0).fill.type: ', shape.table.cell(0,0).fill.type)
+		
+
+			print("\nTABLE CELL text_frame: ")
+			pprint(dir(shape.table.cell(0,0).text_frame))
+			print("\nTABLE CELL text_frame.text: ")
+			print(shape.table.cell(0,0).text_frame.text)
+			
+			print("\nCell FONT PER PARAGRAPH")
+			pprint(dir(shape.table.cell(0,0).text_frame.paragraphs[0].font))
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.bold: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.bold)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.color: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.color.rgb)
+			pprint(dir(shape.table.cell(0,0).text_frame.paragraphs[0].font.color))
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.fill: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.fill)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.italic: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.italic)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.language_id: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.language_id)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.name: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.name)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.size: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.size)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.underline: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.underline)
+
+		except Exception as detail:
+			print(detail)
+			pass
+
+		print("\n")
+
+		print("\nTABLE COLUMN HEADERS & CONTENT")
+		for row in range (0, len(shape.table.rows)):
+			for col in range (0,len(shape.table.columns)):
+				# cell (rows, columns)
+				if(row == 0):
+					print("Column #" + str(col + 1) + " Header: " + shape.table.cell(row,col).text + "\n")
+				else:
+					print("Cell(ROW, COL): (" +str(row + 1) + ", " + str(col + 1) + ") TEXT: " + shape.table.cell(row,col).text + "\n")
+
+		""" for col in shape.table.columns:
+			print("\nCOLUMN %s WIDTH: %s") % str(col), str(col.width)
+		print("\n") """
+		""" for i in range(0, len(shape.table.columns)):
+			print("\nCOLUMN %d HEADER: %s") % i, str(shape.table.cell(0, i).text) 
+		"""
+		print("\n")
+
+
 		return True
 	return False
+
 
 def findShapeTEXT_BOX(shape):
 	if(string_found('TEXT_BOX',str(shape.shape_type))):
 		print("\n FOUND A TEXT_BOX")
 		findShapeDimensions(shape)
+		"""
+		print("\nShape Attributes: ")
+		pprint(dir(shape))
+		print("\n")
+		pprint(dir(shape.text_frame))
+		print("\n")
+		pprint(dir(shape.text_frame.paragraphs[0]))
+		print("\n")
+		print(len(shape.text_frame.paragraphs))
+		print("\n")
+		print(shape.text_frame.paragraphs[0].text)
+		"""
 		if(shape.text):
 			print("\nSHAPE TEXT: " + shape.text)
 			return True

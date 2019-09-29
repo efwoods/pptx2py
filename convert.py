@@ -21,29 +21,30 @@ def test(prs, GENERATED_FILE_NAME):
 	generator.writeSave(mergeMe_py)
 	generator.closeMergeMe_py(mergeMe_py)
 
-def loopThroughPresentation(prs, GENERATED_FILE_NAME):
+def loopThroughPresentation(prs, GENERATED_FILE_HANDLER):
 	for slide in prs.slides:
-		generator.writeAddSlide(GENERATED_FILE_NAME)
+		generator.writeAddSlide(GENERATED_FILE_HANDLER)
 		print("\n\n#############################################################\n\n")
 		print("Slide " + str((prs.slides.index(slide)) + 1) + " has the following shapes")
 		for shape in slide.shapes:
 			try:
-				identifyShapeAndGenerate(shape)
+				identifyShapeAndGenerate(shape, GENERATED_FILE_HANDLER)
 				continue
 			except Exception as detail:
 				print(detail)
 				pass
 
-def identifyShapeAndGenerate(shape):
+def identifyShapeAndGenerate(shape, GENERATED_FILE_HANDLER):
 			try:
 				print("\nShape Type: " + str(shape.shape_type))
-				if not (findPlaceholderAndGenerate(shape)):
-					findShapeAndGenerate(shape)
+				""" print("\nShape.title.text: " + str(shape.title.text)) """
+				if not (findPlaceholderAndGenerate(shape, GENERATED_FILE_HANDLER)):
+					findShapeAndGenerate(shape, GENERATED_FILE_HANDLER)
 			except Exception as detail:
 				print(detail)
 				pass
 
-def findPlaceholderAndGenerate(shape):
+def findPlaceholderAndGenerate(shape, GENERATED_FILE_HANDLER):
 	if(scanner.string_found('PLACEHOLDER',str(shape.shape_type))):
 		print("\n FOUND A PLACEHOLDER ON SHAPE")
 		FOUND_BY = 'BY PLACEHOLDER'
@@ -76,11 +77,14 @@ def findPlaceholderAndGenerate(shape):
 		return True
 	return False
 
-def findShapeAndGenerate(shape):
+def findShapeAndGenerate(shape, GENERATED_FILE_HANDLER):
 	print("\n SEARCHING FOR SHAPE BY SHAPE.SHAPE_TYPE: " + str(shape.shape_type))
 	FOUND_BY = 'BY SHAPE.SHAPE_TYPE'
+	
 	if(scanner.findShapeTEXT_BOX(shape)):
 		scanner.separateFoundShapesWithPrint(FOUND_BY)
+		generator.writeADD_TEXTBOX(GENERATED_FILE_HANDLER, shape)
+
 	elif(scanner.findShapeAUTO_SHAPE(shape)):
 		scanner.separateFoundShapesWithPrint(FOUND_BY)
 	elif(scanner.findShapeCALLOUT(shape)):
@@ -123,10 +127,11 @@ def findShapeAndGenerate(shape):
 		scanner.separateFoundShapesWithPrint(FOUND_BY)
 	elif(scanner.findShapeSCRIPT_ANCHOR(shape)):
 		scanner.separateFoundShapesWithPrint(FOUND_BY)
+
 	elif(scanner.findShapeTABLE(shape)):
 		scanner.separateFoundShapesWithPrint(FOUND_BY)
-	elif(scanner.findShapeTEXT_BOX(shape)):
-		scanner.separateFoundShapesWithPrint(FOUND_BY)
+		generator.writeTable(GENERATED_FILE_HANDLER, shape)
+
 	elif(scanner.findShapeTEXT_EFFECT(shape)):
 		scanner.separateFoundShapesWithPrint(FOUND_BY)
 	elif(scanner.findShapeWEB_VIDEO(shape)):
