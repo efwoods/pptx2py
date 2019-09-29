@@ -9,18 +9,14 @@ slide = prs.slides.add_slide(title_slide_layout)
 shape = slide.shapes.add_textbox(685800,2895480,7772040,1066320)
 shape.text_frame.text = "Presentation Title"
 shape = slide.shapes.add_textbox(685800,4648320,6400440,1904760)
-shape.text_frame.text = "Author
-Department
-Date
-Location"
+shape.text_frame.text = "Author\nDepartment\nDate\nLocation\n"
+shape = slide.shapes.add_textbox(4480560,2651760,3017520,346320)
+shape.text_frame.text = "User1 test "
 slide = prs.slides.add_slide(title_slide_layout)
 shape = slide.shapes.add_textbox(722160,2906640,7772040,1361880)
 shape.text_frame.text = "Presentation Title"
 shape = slide.shapes.add_textbox(722160,4648320,7772040,1683360)
-shape.text_frame.text = "Author
-Department
-Date
-Location"
+shape.text_frame.text = "AuthorAuthor \nDepartment\nDate\nLocation\n"
 slide = prs.slides.add_slide(title_slide_layout)
 slide = prs.slides.add_slide(title_slide_layout)
 shape = slide.shapes.add_textbox(533520,990720,3007800,552240)
@@ -34,21 +30,12 @@ slide = prs.slides.add_slide(title_slide_layout)
 shape = slide.shapes.add_textbox(533520,990720,8152920,533160)
 shape.text_frame.text = "List Title"
 shape = slide.shapes.add_textbox(533520,1676520,8152920,4449240)
-shape.text_frame.text = "Lorem ipsum dolor sit amet 
-Aenean commodo ligula eget dolor 
-Cum sociis natoque penatibus et magnis dis parturient montes 
-Donec quam felis, ultricies nec, pellentesque eu 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit 
-Aenean massa 
-Aenean commodo ligula eget dolor"
+shape.text_frame.text = "Lorem ipsum dolor sit ame"
 slide = prs.slides.add_slide(title_slide_layout)
 shape = slide.shapes.add_textbox(533520,990720,8152920,533160)
 shape.text_frame.text = "Slide Title"
 shape = slide.shapes.add_textbox(533520,1676520,8152920,4449240)
-shape.text_frame.text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-
-Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-"
+shape.text_frame.text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem."
 slide = prs.slides.add_slide(title_slide_layout)
 shape = slide.shapes.add_textbox(533520,6248520,8152920,347400)
 shape.text_frame.text = "Type image caption here."
