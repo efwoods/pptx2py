@@ -1,4 +1,5 @@
 # pptx2py
+
      This product allows collaborators to edit, track, and merge PowerPoint files. 
 
 #### You can track your PowerPoint changes in 5 easy steps:
