@@ -256,6 +256,10 @@ WIDTH = 3749040
 HEIGHT = 346320
 shape = slide.shapes.add_textbox(LEFT,TOP,WIDTH,HEIGHT)
 shape.text_frame.text = 'This is the title of the page'
+<<<<<<< HEAD
+=======
+
+>>>>>>> user2
 slide = prs.slides.add_slide(title_slide_layout)
 slide = prs.slides.add_slide(title_slide_layout)
 slide = prs.slides.add_slide(title_slide_layout)
