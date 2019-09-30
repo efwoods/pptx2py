@@ -147,6 +147,19 @@ def writeADD_AUTO_SHAPE(__file__, shape):
 
 	if(string_found('RECTANGLE',str(shape.auto_shape_type))):
 		__file__.write("shape = slide.shapes.add_shape(\n\tMSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)\n")
+		__file__.write("fill = shape.fill\n")
+		__file__.write("fill.background()\n")
+		# color fill below
+		""" 
+		__file__.write("fill.solid()\n")
+		if not (str(shape.fill.fore_color == '_NoneColor')):
+					__file__.write("fill.fore_color.rgb = ")
+					hex2RGB(str(shape.fill.fore_color.rgb),__file__)
+					print("\n")
+
+ """
+		
+
 		""" 
 		__file__.write("shape.line.dash_style = " + shape.line.dash_style+ "\n")
 		__file__.write("shape.line.width = " + shape.line.width + "\n")

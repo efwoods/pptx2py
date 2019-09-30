@@ -15,6 +15,8 @@ WIDTH = 7771320
 HEIGHT = 1065600
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -29,6 +31,8 @@ WIDTH = 6399720
 HEIGHT = 1904040
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -65,6 +69,8 @@ WIDTH = 7771320
 HEIGHT = 1361160
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -79,6 +85,8 @@ WIDTH = 7771320
 HEIGHT = 1682640
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -314,6 +322,8 @@ WIDTH = 7771320
 HEIGHT = 1682640
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -393,6 +403,8 @@ WIDTH = 3474000
 HEIGHT = 601560
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -411,6 +423,8 @@ WIDTH = 3007080
 HEIGHT = 551520
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -425,6 +439,8 @@ WIDTH = 8228520
 HEIGHT = 684720
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -443,6 +459,8 @@ WIDTH = 8152200
 HEIGHT = 532440
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -720,6 +738,8 @@ WIDTH = 8152200
 HEIGHT = 532440
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -734,6 +754,8 @@ WIDTH = 8152200
 HEIGHT = 4448520
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -788,6 +810,8 @@ WIDTH = 8152200
 HEIGHT = 532440
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -802,6 +826,8 @@ WIDTH = 8152200
 HEIGHT = 4448520
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -838,6 +864,8 @@ WIDTH = 8152200
 HEIGHT = 346680
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -852,6 +880,8 @@ WIDTH = 8152200
 HEIGHT = 456120
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
@@ -870,6 +900,8 @@ WIDTH = 8228520
 HEIGHT = 531720
 shape = slide.shapes.add_shape(
 	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+fill = shape.fill
+fill.background()
 current_paragraph = shape.text_frame.add_paragraph()
 current_paragraph.font.bold = None
 current_paragraph.font.name = None
