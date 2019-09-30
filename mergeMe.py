@@ -3,15 +3,112 @@ from pptx.enum.shapes import MSO_SHAPE
 from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 
-prs = Presentation()
+prs = Presentation("./.template/DO_NOT_CHANGE.pptx")
 title_slide_layout = prs.slide_layouts[0]
 slide = prs.slides.add_slide(title_slide_layout)
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
+LEFT = 685800
+TOP = 2895480
+WIDTH = 7771320
+HEIGHT = 1065600
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Presentation Title'
+shape.text_frame.word_wrap = None
+LEFT = 685800
+TOP = 4648320
+WIDTH = 6399720
+HEIGHT = 1904040
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Author,Department,Date,Location'
+shape.text_frame.word_wrap = None
 slide = prs.slides.add_slide(title_slide_layout)
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
+LEFT = 1086840
+TOP = 496440
+WIDTH = 7771320
+HEIGHT = 1361160
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Presentation Title'
+shape.text_frame.word_wrap = None
+LEFT = 274320
+TOP = 2377440
+WIDTH = 7771320
+HEIGHT = 1682640
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Author,Department,Date,Location'
+shape.text_frame.word_wrap = None
 LEFT = 1645920
 TOP = 1463040
 WIDTH = 7040520
 HEIGHT = 4937400
-
 ROWS = 4
 COLS = 9
 shape = slide.shapes.add_table(ROWS, COLS, LEFT, TOP, WIDTH, HEIGHT)
@@ -208,6 +305,23 @@ for row in range (0, len(shape.table.rows)):
 
 
 slide = prs.slides.add_slide(title_slide_layout)
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
+LEFT = 722160
+TOP = 4648320
+WIDTH = 7771320
+HEIGHT = 1682640
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = ''
+shape.text_frame.word_wrap = None
 LEFT = 731520
 TOP = 1188720
 WIDTH = 7589160
@@ -273,15 +387,75 @@ for row in range (0, len(shape.table.rows)):
 		shape.table.cell(1,4).fill.fore_color.rgb = RGBColor(173, 213, 138)
 
 
+LEFT = 2834640
+TOP = 274320
+WIDTH = 3474000
+HEIGHT = 601560
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Title: there was a black text box…?'
+shape.text_frame.word_wrap = None
 slide = prs.slides.add_slide(title_slide_layout)
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
+LEFT = 533520
+TOP = 990720
+WIDTH = 3007080
+HEIGHT = 551520
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'GraphTitle'
+shape.text_frame.word_wrap = None
+LEFT = 533520
+TOP = 6019920
+WIDTH = 8228520
+HEIGHT = 684720
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Additional Notes ,- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem'
+shape.text_frame.word_wrap = None
 slide = prs.slides.add_slide(title_slide_layout)
-
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
+LEFT = 533520
+TOP = 990720
+WIDTH = 8152200
+HEIGHT = 532440
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Chart Title'
+shape.text_frame.word_wrap = None
 LEFT = 529560
 TOP = 1667520
 WIDTH = 8152920
 HEIGHT = 4419000
 ROWS = 8
-
 COLS = 4
 shape = slide.shapes.add_table(ROWS, COLS, LEFT, TOP, WIDTH, HEIGHT)
 for row in range (0, len(shape.table.rows)):
@@ -452,12 +626,16 @@ for row in range (0, len(shape.table.rows)):
 
 
 slide = prs.slides.add_slide(title_slide_layout)
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
 LEFT = 2468880
 TOP = 457200
 WIDTH = 4023360
 HEIGHT = 346320
 shape = slide.shapes.add_textbox(LEFT,TOP,WIDTH,HEIGHT)
-shape.text_frame.text = 'Table continued...'
+shape.line.dash_style = None
+shape.line.width = 0
 LEFT = 538200
 TOP = 1109160
 WIDTH = 8152920
@@ -533,7 +711,171 @@ for row in range (0, len(shape.table.rows)):
 
 
 slide = prs.slides.add_slide(title_slide_layout)
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
+LEFT = 533520
+TOP = 990720
+WIDTH = 8152200
+HEIGHT = 532440
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'List Title'
+shape.text_frame.word_wrap = None
+LEFT = 533520
+TOP = 1676520
+WIDTH = 8152200
+HEIGHT = 4448520
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Lorem ipsum dolor sit amet ,Aenean commodo ligula eget dolor ,Cum sociis natoque penatibus et magnis dis parturient montes ,Donec quam felis, ultricies nec, pellentesque eu ,Lorem ipsum dolor sit amet, consectetuer adipiscing elit ,Aenean massa ,Aenean commodo ligula eget dolor'
+shape.text_frame.word_wrap = None
 slide = prs.slides.add_slide(title_slide_layout)
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
+LEFT = 533520
+TOP = 990720
+WIDTH = 8152200
+HEIGHT = 532440
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Slide Title'
+shape.text_frame.word_wrap = None
+LEFT = 533520
+TOP = 1676520
+WIDTH = 8152200
+HEIGHT = 4448520
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.,Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.'
+shape.text_frame.word_wrap = None
 slide = prs.slides.add_slide(title_slide_layout)
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
+LEFT = 533520
+TOP = 6248520
+WIDTH = 8152200
+HEIGHT = 346680
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Type image caption here.'
+shape.text_frame.word_wrap = None
+LEFT = 533520
+TOP = 1066680
+WIDTH = 8152200
+HEIGHT = 456120
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Slide Title'
+shape.text_frame.word_wrap = None
 slide = prs.slides.add_slide(title_slide_layout)
-prs.save('generated_FINAL.pptx')
+for shape in slide.shapes:
+	sp = shape.element
+	sp.getparent().remove(sp)
+LEFT = 507960
+TOP = 1038240
+WIDTH = 8228520
+HEIGHT = 531720
+shape = slide.shapes.add_shape(
+	MSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)
+current_paragraph = shape.text_frame.add_paragraph()
+current_paragraph.font.bold = None
+current_paragraph.font.name = None
+current_paragraph.font.size = None
+current_paragraph.font.underline = None
+current_paragraph.font.italic = None
+shape.text_frame.text = 'Page Title'
+shape.text_frame.word_wrap = None
+prs.save('FINAL.pptx')

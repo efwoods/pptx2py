@@ -3,7 +3,7 @@
 IMPORTS
 ############################################################################
 """
-
+import types
 import os
 from pptx import Presentation
 import re
@@ -42,10 +42,67 @@ FIND BY SHAPE_TYPE FUNCTIONS
 ############################################################################
 """
 
+
+
+def printAttrTree(shape):
+	for attr in dir(shape):
+				if not attr.startswith('__'):
+					try:
+						print(attr + ":" + "\n")
+						
+						if not (type(getattr(shape,attr)) == str):
+							#printAttrTree(attr)
+							print(getattr(shape,attr))
+						else:
+							print(getattr(shape, attr))
+						
+						print("\n")
+						#printAttrTree(attr)
+					except Exception as detail:
+						print(detail)
+						continue
+
 def findShapeAUTO_SHAPE(shape):
 	if(string_found('AUTO_SHAPE',str(shape.shape_type))):
 		print("\n FOUND A AUTO_SHAPE")
 		findShapeDimensions(shape)
+		try:
+			print("\n")
+
+			#printAttrTree(shape)
+			""" 
+			print('shape.table.cell(0,0).fill.type: ', shape..fill.type)
+		
+
+			print("\nTABLE CELL text_frame: ")
+			pprint(dir(shape.table.cell(0,0).text_frame))
+			print("\nTABLE CELL text_frame.text: ")
+			print(shape.table.cell(0,0).text_frame.text)
+			
+			print("\nCell FONT PER PARAGRAPH")
+			pprint(dir(shape.table.cell(0,0).text_frame.paragraphs[0].font))
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.bold: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.bold)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.color: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.color.rgb)
+			pprint(dir(shape.table.cell(0,0).text_frame.paragraphs[0].font.color))
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.fill: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.fill)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.italic: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.italic)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.language_id: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.language_id)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.name: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.name)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.size: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.size)
+
+			print('shape.table.cell(0,0).text_frame.paragraphs[0].font.underline: ', shape.table.cell(0,0).text_frame.paragraphs[0].font.underline)
+ """
+		except Exception as detail:
+			print(detail)
+			pass
+
 		return True
 	return False
 
@@ -456,7 +513,7 @@ def findShapeTABLE(shape):
 			pass
 
 		print("\n")
-
+		## TABLE LINES 
 		print("\nTABLE COLUMN HEADERS & CONTENT")
 		for row in range (0, len(shape.table.rows)):
 			for col in range (0,len(shape.table.columns)):

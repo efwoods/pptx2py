@@ -87,6 +87,8 @@ def findShapeAndGenerate(shape, GENERATED_FILE_HANDLER):
 
 	elif(scanner.findShapeAUTO_SHAPE(shape)):
 		scanner.separateFoundShapesWithPrint(FOUND_BY)
+		generator.writeADD_AUTO_SHAPE(GENERATED_FILE_HANDLER, shape)
+
 	elif(scanner.findShapeCALLOUT(shape)):
 		scanner.separateFoundShapesWithPrint(FOUND_BY)
 	elif(scanner.findShapeCANVAS(shape)):

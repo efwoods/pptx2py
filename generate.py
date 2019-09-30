@@ -1,5 +1,6 @@
 from io import StringIO
 import sys
+import re
 
 """
 ############################################################################
@@ -59,6 +60,7 @@ def writeTable(__file__, shape):
 
 		__file__.write("shape = slide.shapes.add_table(ROWS, COLS, LEFT, TOP, WIDTH, HEIGHT)") #.TABLE
 
+		""" __file__.write("shape.line = ") """
 		__file__.write("\nfor row in range (0, len(shape.table.rows)):")
 		__file__.write("\n\tfor col in range (0,len(shape.table.columns)):")
 		__file__.write("\n\t\tif(row == 0):")
@@ -115,11 +117,16 @@ def writeImports(__file__):
 	__file__.write("\n")
 
 def writeCreateNewPresentation(__file__):
-	__file__.write("prs = Presentation()\n")
+	__file__.write("prs = Presentation(\"./.template/DO_NOT_CHANGE.pptx\")\n")
 	__file__.write("title_slide_layout = prs.slide_layouts[0]\n")
 
 def writeAddSlide(__file__):
 	__file__.write("slide = prs.slides.add_slide(title_slide_layout)\n")
+	__file__.write("for shape in slide.shapes:")
+	__file__.write("\n\tsp = shape.element")
+	__file__.write("\n\tsp.getparent().remove(sp)")
+	__file__.write("\n")
+
 
 def writeTITLE(__file__):
 	__file__.write("title = slide.shapes.title\n")
@@ -129,12 +136,66 @@ def writeSUBTITLE(__file__):
 	__file__.write("subtitle = slide.placeholders[1]\n") ## placeholders[1]??
 	__file__.write("subtitle.text = \"python-pptx generator was here!\"\n")
 
-def writeADD_AUTO_SHAPE(__file__):
-	__file__.write("left = Inches(1.0)\n")
-	__file__.write("top = Inches(1.0)\n")
-	__file__.write("width = Inches(1.0)\n")
-	__file__.write("height = Inches(1.0)\n")
-	__file__.write("shape = slide.shapes.add_shape(\n\tMSO_SHAPE.ROUNDED_RECTANGLE, left, top, width, height\n)\n")
+def writeADD_AUTO_SHAPE(__file__, shape):
+	__file__.write("LEFT = " + str(shape.left) + "\n")
+	__file__.write("TOP = " + str(shape.top) + "\n")
+	__file__.write("WIDTH = " + str(shape.width) + "\n")
+	__file__.write("HEIGHT = " + str(shape.height) + "\n")
+
+	#__file__.write("LINE_COLOR = " + shape.line.color.rgb + "\n")
+	
+
+	if(string_found('RECTANGLE',str(shape.auto_shape_type))):
+		__file__.write("shape = slide.shapes.add_shape(\n\tMSO_SHAPE.RECTANGLE, LEFT, TOP, WIDTH, HEIGHT)\n")
+		""" 
+		__file__.write("shape.line.dash_style = " + shape.line.dash_style+ "\n")
+		__file__.write("shape.line.width = " + shape.line.width + "\n")
+		"""	
+		#__file__.write("shape.text_frame.add_paragraph()")
+		for paragraph in shape.text_frame.paragraphs:
+			__file__.write("current_paragraph = shape.text_frame.add_paragraph()\n")
+			try:
+				__file__.write("current_paragraph.font.bold = " +str(paragraph.font.bold) + "\n")
+				
+				if not (str(paragraph.font.color == '_NoneColor')):
+					__file__.write("current_paragraph.font.color.rgb")
+					hex2RGB(str(paragraph.font.color.rgb), __file__)
+					print("\n")
+
+				if not (str(paragraph.font.fill.fore_color == '_NoneColor')):
+					__file__.write("current_paragraph.font.fill.fore_color.rgb = ")
+					hex2RGB(str(paragraph.font.fill.fore_color.rgb),__file__)
+					print("\n")
+				
+				__file__.write("current_paragraph.font.name = " +str(paragraph.font.name) + "\n")
+				__file__.write("current_paragraph.font.size = " +str(paragraph.font.size) + "\n")
+				__file__.write("current_paragraph.font.underline = " +str(paragraph.font.underline) + "\n")
+				__file__.write("current_paragraph.font.italic = " +str(paragraph.font.italic) + "\n")
+			except Exception as detail:
+				print(detail)
+				pass
+			
+		""" 
+			for run in paragraph.runs:
+				__file__.write("current_run = current_paragraph.add_run()\n")
+				__file__.write("current_run.text = " + run.text + "\n")
+		print("\n") """
+		
+		text_runs = []
+		
+		""" 
+		__file__.write("\nfor paragraph in range (0, len(shape.text_frame.paragraphs)):")
+		__file__.write("\n\tfor run in range (0,len(paragraph.runs)):")
+		"""
+		
+		for paragraph in shape.text_frame.paragraphs:
+			for run in paragraph.runs:
+				text_runs.append(run.text)
+		TEXT = ','.join(text_runs)
+		__file__.write("shape.text_frame.text = '" + TEXT + "'\n")
+		
+		__file__.write("shape.text_frame.word_wrap = " + str(shape.text_frame.word_wrap) + "\n")
+	
 
 def writeFILL_SHAPE_SOLID_RED(__file__):
 	writeADD_AUTO_SHAPE(__file__)
@@ -165,11 +226,34 @@ def writeADD_TEXTBOX(__file__, shape):
 			for run in paragraph.runs:
 				text_runs.append(run.text)
 		TEXT = ','.join(text_runs)
+		__file__.write("shape.line.dash_style = " + str(shape.line.dash_style)+ "\n")
+		__file__.write("shape.line.width = " + str(shape.line.width) + "\n")
+		
+		__file__.write("shape.text_frame.text.font.bold = " + str(shape.text_frame.text.font.bold) + "\n")
+		__file__.write("shape.text_frame.text.font.name = " + str(shape.text_frame.text.font.name) + "\n")
+		__file__.write("shape.text_frame.text.font.size = " + str(shape.text_frame.text.font.size) + "\n")
+		
+		if not (str(paragraph.font.color == '_NoneColor')):
+			__file__.write("shape.text_frame.text.font.color.rgb = ")
+			hex2RGB(shape.text_frame.text.font.color.rgb)
+		print("\n")
+		__file__.write("shape.text_frame.word_wrap = " + str(shape.text_frame.word_wrap) + "\n")
 
 	else:
+		__file__.write("shape.line.dash_style = " + shape.line.dash_style+ "\n")
+		__file__.write("shape.line.width = " + shape.line.width + "\n")
+		
+		__file__.write("shape.text_frame.text.font.bold = " + shape.text.font.bold + "\n")
+		__file__.write("shape.text_frame.text.font.name = " + shape.text.font.name + "\n")
+		__file__.write("shape.text_frame.text.font.size = " + shape.text.font.size + "\n")
+		__file__.write("shape.text_frame.text.font.color.rgb = ")
+		hex2RGB(shape.text.font.color.rgb)
+		print("\n")
+		__file__.write("shape.text_frame.word_wrap = " + shape.text_frame.word_wrap + "\n")
 		TEXT = shape.text
 
 	__file__.write("shape.text_frame.text = '" + TEXT + "'\n")
+	
 
 
 def writeADD_CENTER_TITLE(__file__, LEFT, TOP, WIDTH, HEIGHT, TEXT):
