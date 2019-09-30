@@ -12,13 +12,13 @@ def scanAndGenerate(prs, GENERATED_FILE_NAME):
 	generator.writeSave(mergeMe_py)
 	generator.closeMergeMe_py(mergeMe_py)
 
-def test(prs, GENERATED_FILE_NAME):
+def test(prs, GENERATED_FILE_NAME, OUTPUT_PPTX_FILENAME):
 	mergeMe_py = generator.openMergeMe_py(GENERATED_FILE_NAME)
 	generator.writeImports(mergeMe_py)
 	generator.writeCreateNewPresentation(mergeMe_py)
 	loopThroughPresentation(prs, mergeMe_py)
 	
-	generator.writeSave(mergeMe_py)
+	generator.writeSave(mergeMe_py,OUTPUT_PPTX_FILENAME)
 	generator.closeMergeMe_py(mergeMe_py)
 
 def loopThroughPresentation(prs, GENERATED_FILE_HANDLER):
@@ -144,10 +144,11 @@ def findShapeAndGenerate(shape, GENERATED_FILE_HANDLER):
 
 
 if __name__ == "__main__":
-	FILE_NAME = "template_sample.pptx"
+	FILE_NAME = sys.argv[1]#"template_sample.pptx"
 	GENERATED_FILE_NAME = "mergeMe.py"
-		
+	OUTPUT_PPTX_FILENAME = 'FINAL.pptx'
+
 	prs = scanner.scanPresentationByMethod(FILE_NAME)
 
 	#scanAndGenerate(prs,GENERATED_FILE_NAME)
-	test(prs, GENERATED_FILE_NAME)
+	test(prs, GENERATED_FILE_NAME, OUTPUT_PPTX_FILENAME)

@@ -183,8 +183,12 @@ def writeTEXT(__file__): # BE MINDFUL OF SHAPE BEFORE USE !!!!!!!!!!!!
 	__file__.write("shape.text_frame.text = \"ADDED TEXT HERE! :)\"\n")	
 
 
-def writeSave(__file__):
-	__file__.write("prs.save('generated_FINAL.pptx')\n")
+def writeSave(__file__, OUTPUT_PPTX_FILENAME):
+	if(string_found('.pptx',OUTPUT_PPTX_FILENAME)):
+		__file__.write("prs.save('" + OUTPUT_PPTX_FILENAME + "')\n")
+	else:
+		__file__.write("prs.save('" + OUTPUT_PPTX_FILENAME + ".pptx')\n")
+	
 
 
 """
