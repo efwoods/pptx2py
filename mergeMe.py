@@ -11,6 +11,7 @@ LEFT = 1645920
 TOP = 1463040
 WIDTH = 7040520
 HEIGHT = 4937400
+
 ROWS = 4
 COLS = 9
 shape = slide.shapes.add_table(ROWS, COLS, LEFT, TOP, WIDTH, HEIGHT)
@@ -274,11 +275,13 @@ for row in range (0, len(shape.table.rows)):
 
 slide = prs.slides.add_slide(title_slide_layout)
 slide = prs.slides.add_slide(title_slide_layout)
+
 LEFT = 529560
 TOP = 1667520
 WIDTH = 8152920
 HEIGHT = 4419000
 ROWS = 8
+
 COLS = 4
 shape = slide.shapes.add_table(ROWS, COLS, LEFT, TOP, WIDTH, HEIGHT)
 for row in range (0, len(shape.table.rows)):
