@@ -70,12 +70,16 @@ def writeTable(__file__, shape):
 					__file__.write("\n\t\t\tshape.table.columns[" + str(col) +"].width = " + str(shape.table.columns[col].width))
 
 					__file__.write("\n\t\t\tshape.table.cell(" + str(row) + "," + str(col) + ").text = '" + str(shape.table.cell(row,col).text) + "'")
+
 					__file__.write("\n\t\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.solid()")
 					""" __file__.write("\n\t\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.type = '" + str(shape.table.cell(row,col).fill.type) + "'") """
 					try:
-						__file__.write("\n\t\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.fore_color.rgb = ")
-						hex2RGB(str(shape.table.cell(row,col).fill.fore_color.rgb),__file__)
-						__file__.write("\n")
+						if not(str(shape.table.cell(row,col).fill) == "_GradFill"):
+							if not (str(shape.table.cell(row,col).fill) == "_NoneFill"):
+								if not(str(shape.table.cell(row,col).fill.fore_color) == "_SchemeColor"):
+									__file__.write("\n\t\t\tshape.table.cell(" + str(row) + "," + str(col) + ").fill.fore_color.rgb = ")
+									hex2RGB(str(shape.table.cell(row,col).fill.fore_color.rgb),__file__)
+									__file__.write("\n")
 					except Exception as detail:
 						print(detail)
 						pass
